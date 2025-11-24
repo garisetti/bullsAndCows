@@ -15,8 +15,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>Bulls & Cows</h1>
-            <p class="subtitle">Crack the 4-letter code!</p>
+            <div class="header-content">
+                <div>
+                    <h1>Bulls & Cows</h1>
+                    <p class="subtitle">Crack the 4-letter code!</p>
+                </div>
+                <a href="{% url 'reset' %}" class="btn-new-game">New Game</a>
+            </div>
         </header>
 
         <main>
