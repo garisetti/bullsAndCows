@@ -1,0 +1,55 @@
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/suryagarisetti/Documents/AyrusDev/project1/bullsAndCowsWebApp/game/views.py", line 18, in index
+    return render(request, 'game/index.html', context)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: game/index.html
+[23/Nov/2025 18:24:13] "HEAD / HTTP/1.1" 500 0
+/Users/suryagarisetti/Documents/AyrusDev/project1/bullsAndCowsWebApp/bulls_and_cows/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 23, 2025 - 18:24:13
+Django version 5.2.8, using settings 'bulls_and_cows.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+Watching for file changes with StatReloader
+[23/Nov/2025 18:24:42] "HEAD / HTTP/1.1" 200 0
+[23/Nov/2025 18:28:14] "GET / HTTP/1.1" 200 1775
+[23/Nov/2025 18:28:14] "GET /static/game/style.css HTTP/1.1" 200 4159
+Not Found: /favicon.ico
+[23/Nov/2025 18:28:14] "GET /favicon.ico HTTP/1.1" 404 2969
+[23/Nov/2025 18:28:23] "POST /guess/ HTTP/1.1" 302 0
+[23/Nov/2025 18:28:23] "GET / HTTP/1.1" 200 2124
+[23/Nov/2025 18:28:35] "POST /guess/ HTTP/1.1" 302 0
+[23/Nov/2025 18:28:35] "GET / HTTP/1.1" 200 2439
+[23/Nov/2025 18:29:00] "POST /guess/ HTTP/1.1" 302 0
+[23/Nov/2025 18:29:00] "GET / HTTP/1.1" 200 2754
+[23/Nov/2025 18:29:00] "GET /static/game/style.css HTTP/1.1" 304 0
+[23/Nov/2025 18:29:08] "POST /guess/ HTTP/1.1" 302 0
+[23/Nov/2025 18:29:08] "GET / HTTP/1.1" 200 3069
+[23/Nov/2025 18:29:13] "POST /guess/ HTTP/1.1" 302 0
+[23/Nov/2025 18:29:13] "GET / HTTP/1.1" 200 3132
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 23, 2025 - 18:24:41
+Django version 5.2.8, using settings 'bulls_and_cows.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/

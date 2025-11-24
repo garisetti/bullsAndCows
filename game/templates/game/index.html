@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulls and Cows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bulls & Cows</h1>
+            <p class="subtitle">Crack the 4-letter code!</p>
+        </header>
+
+        <main>
+            {% if message %}
+                <div class="message-box {% if game_over %}success{% endif %}">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            {% if not game_over %}
+                <form action="{% url 'guess' %}" method="post" class="guess-form">
+                    {% csrf_token %}
+                    <input type="text" name="guess" maxlength="4" placeholder="Type 4 letters..." required autofocus autocomplete="off">
+                    <button type="submit">Guess</button>
+                </form>
+            {% else %}
+                <div class="action-area">
+                    <a href="{% url 'reset' %}" class="btn-reset">Play Again</a>
+                </div>
+            {% endif %}
+
+            {% if history %}
+                <div class="history-container">
+                    <h2>History</h2>
+                    <div class="history-list">
+                        <div class="history-header">
+                            <span>Guess</span>
+                            <span>Bulls</span>
+                            <span>Cows</span>
+                        </div>
+                        {% for entry in history %}
+                            <div class="history-item">
+                                <span class="guess-word">{{ entry.guess }}</span>
+                                <span class="bulls">{{ entry.bulls }} 🐂</span>
+                                <span class="cows">{{ entry.cows }} 🐄</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            
+            {% if not game_over and not history %}
+                <div class="rules">
+                    <h3>How to Play</h3>
+                    <p>Guess the 4-letter secret word.</p>
+                    <ul>
+                        <li><strong>Bull (🐂):</strong> Correct letter in the correct position.</li>
+                        <li><strong>Cow (🐄):</strong> Correct letter in the wrong position.</li>
+                    </ul>
+                </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>
