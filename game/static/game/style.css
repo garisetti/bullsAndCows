@@ -45,6 +45,7 @@ h1 {
     font-size: 2.5rem;
     font-weight: 700;
     background: linear-gradient(to right, #818cf8, #c084fc);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -176,8 +177,15 @@ h2 {
 }
 
 @keyframes slideIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .guess-word {
@@ -196,26 +204,90 @@ h2 {
     font-weight: 600;
 }
 
-.rules {
+.rules-container {
     margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+details {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
     border-radius: 8px;
+    overflow: hidden;
 }
 
-.rules h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 600;
     color: var(--primary-color);
+    list-style: none;
+    /* Remove default arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.rules ul {
+summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+details[open] summary::after {
+    content: '-';
+}
+
+.rules-content {
+    padding: 0 1rem 1rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.rules-content ul {
     list-style: none;
     margin-top: 0.5rem;
 }
 
-.rules li {
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+.rules-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        /* Allow scrolling on small screens */
+    }
+
+    .container {
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="text"] {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    button {
+        padding: 0.75rem 1rem;
+    }
+
+    .history-item {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .bulls,
+    .cows {
+        font-size: 0.9rem;
+    }
 }
